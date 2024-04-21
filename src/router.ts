@@ -37,7 +37,7 @@ router.post(
         .withMessage('El nombre es obligatorio'),
     body('price')
         .isNumeric()
-        .withMessage('El precio debe ser un valor número')
+        .withMessage('El precio debe ser un valor numérico')
         .notEmpty()
         .withMessage('El precio es obligatorio')
         .custom(val => val > 0)

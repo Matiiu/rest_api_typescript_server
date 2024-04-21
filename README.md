@@ -13,3 +13,12 @@
 ### Data Types para Sequelize
 
     https://sequelize.org/docs/v7/models/data-types/
+
+#### Testing con jest y supertest
+
+    https://jestjs.io/
+
+##### Instalación:
+
+    npm i -D supertest @types/supertest jest @types/jest ts-jest
+    npx ts-jest config:init

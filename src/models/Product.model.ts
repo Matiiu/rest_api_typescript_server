@@ -11,7 +11,7 @@ export default class Product extends Model {
 
     @Default(0)
     @Column({
-        type: DataType.FLOAT(10, 2),
+        type: DataType.FLOAT,
     })
     declare price: number
 

@@ -32,7 +32,7 @@ export const getProductById = async (req: Request, res: Response) => {
 export const createProduct = async (req: Request, res: Response) => {
     try {
         const product = await Product.create(req.body)
-        res.json({data: product})
+        res.status(201).json({data: product})
     } catch (error) {
         console.error(error)
     }
