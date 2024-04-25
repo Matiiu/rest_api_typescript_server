@@ -1,33 +1,31 @@
-import express from 'express'
-import colors from 'colors'
+import express from 'express';
+import colors from 'colors';
 
-import router from './router'
-import db from './config/db'
+import router from './router';
+import db from './config/db';
 
 // Connect to db
-async function connectDB() {
-    try {
-        await db.authenticate()
-        db.sync()
-        // console.log(colors.bgMagenta.bold('Conexión Exitosa'))
-    } catch (error) {
-        console.log(
-            colors.bgRed.bold('An error occurred while connecting to the db')
-        )
-        console.error(error)
-    }
+export async function connectDB() {
+	try {
+		await db.authenticate();
+		db.sync();
+	} catch (error) {
+		console.log(
+			colors.bgRed.bold('An error occurred while connecting to the db')
+		);
+	}
 }
-connectDB()
+connectDB();
 
 // Installation of Express
-const server = express()
+const server = express();
 
 // Read form data
-server.use(express.json())
+server.use(express.json());
 
-server.use('/api', router)
+server.use('/api', router);
 server.get('/api', (req, res) => {
-    res.json({msg: 'From API'})
-})
+	res.json({msg: 'From API'});
+});
 
-export default server
+export default server;
