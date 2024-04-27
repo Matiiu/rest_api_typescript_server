@@ -95,7 +95,7 @@ export const updateAvailability = async (req: Request, res: Response) => {
 		}
 
 		// Update availability
-		let availability: boolean = !product.dataValues.availability;
+		let availability: boolean = !Boolean(product.dataValues.availability);
 
 		if (
 			'availability' in req.body &&
