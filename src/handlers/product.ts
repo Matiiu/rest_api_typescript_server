@@ -1,13 +1,13 @@
-import {Request, Response} from 'express';
+import { Request, Response } from 'express';
 import Product from '../models/Product.model';
-import {putMsgErrors} from '../data/Errors';
+import { putErrorMsgs } from '../data/Errors';
 
 export const getProducts = async (req: Request, res: Response) => {
 	try {
 		const products = await Product.findAll({
 			order: [['name', 'ASC']],
 		});
-		res.json({data: products});
+		res.json({ data: products });
 	} catch (error) {
 		console.error(error);
 	}
@@ -15,7 +15,7 @@ export const getProducts = async (req: Request, res: Response) => {
 
 export const getProductById = async (req: Request, res: Response) => {
 	try {
-		const {id} = req.params;
+		const { id } = req.params;
 		const product = await Product.findByPk(id);
 
 		if (!product) {
@@ -32,7 +32,7 @@ export const getProductById = async (req: Request, res: Response) => {
 			});
 		}
 
-		res.json({data: product});
+		res.json({ data: product });
 	} catch (error) {
 		console.error(error);
 	}
@@ -41,7 +41,7 @@ export const getProductById = async (req: Request, res: Response) => {
 export const createProduct = async (req: Request, res: Response) => {
 	try {
 		const product = await Product.create(req.body);
-		res.status(201).json({data: product});
+		res.status(201).json({ data: product });
 	} catch (error) {
 		console.error(error);
 	}
@@ -49,7 +49,7 @@ export const createProduct = async (req: Request, res: Response) => {
 
 export const updateProduct = async (req: Request, res: Response) => {
 	try {
-		const {id} = req.params;
+		const { id } = req.params;
 		const product = await Product.findByPk(id);
 
 		if (!product) {
@@ -58,7 +58,7 @@ export const updateProduct = async (req: Request, res: Response) => {
 					{
 						type: 'field',
 						value: id,
-						msg: putMsgErrors[9],
+						msg: putErrorMsgs[9],
 						path: 'id',
 						location: 'params',
 					},
@@ -69,7 +69,7 @@ export const updateProduct = async (req: Request, res: Response) => {
 		// Update
 		await product.update(req.body);
 		await product.save();
-		res.json({data: product});
+		res.json({ data: product });
 	} catch (error) {
 		console.error(error);
 	}
@@ -77,7 +77,7 @@ export const updateProduct = async (req: Request, res: Response) => {
 
 export const updateAvailability = async (req: Request, res: Response) => {
 	try {
-		const {id} = req.params;
+		const { id } = req.params;
 		const product = await Product.findByPk(id);
 
 		if (!product) {
@@ -106,7 +106,7 @@ export const updateAvailability = async (req: Request, res: Response) => {
 		product.availability = availability;
 
 		await product.save();
-		res.json({data: product});
+		res.json({ data: product });
 	} catch (error) {
 		console.error(error);
 	}
@@ -114,7 +114,7 @@ export const updateAvailability = async (req: Request, res: Response) => {
 
 export const deleteProduct = async (req: Request, res: Response) => {
 	try {
-		const {id} = req.params;
+		const { id } = req.params;
 		const product = await Product.findByPk(id);
 
 		if (!product) {
@@ -133,7 +133,7 @@ export const deleteProduct = async (req: Request, res: Response) => {
 
 		// Delete
 		await product.destroy();
-		res.json({data: 'Producto eliminado'});
+		res.json({ data: 'Producto eliminado' });
 	} catch (error) {
 		console.error(error);
 	}

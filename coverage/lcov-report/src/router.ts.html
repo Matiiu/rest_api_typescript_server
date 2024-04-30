@@ -292,7 +292,7 @@ import {
 	deleteProduct,
 } from './handlers/product';
 import {handleInputErrors} from './middlewares';
-import {putMsgErrors} from './data/Errors';
+import {PutErrorMsgs} from './data/Errors';
 &nbsp;
 const router = Router();
 &nbsp;
@@ -335,22 +335,22 @@ router.put(
 	// Validations
 	param('id')
 		.isInt()
-		.withMessage(putMsgErrors[1])
+		.withMessage(PutErrorMsgs[1])
 		.custom((val: number) =&gt; val &gt; 0)
-		.withMessage(putMsgErrors[2]),
+		.withMessage(PutErrorMsgs[2]),
 	body('name')
 		.isString()
-		.withMessage(putMsgErrors[3])
+		.withMessage(PutErrorMsgs[3])
 		.notEmpty()
-		.withMessage(putMsgErrors[4]),
+		.withMessage(PutErrorMsgs[4]),
 	body('price')
 		.isNumeric()
-		.withMessage(putMsgErrors[5])
+		.withMessage(PutErrorMsgs[5])
 		.notEmpty()
-		.withMessage(putMsgErrors[6])
+		.withMessage(PutErrorMsgs[6])
 		.custom((val: number) =&gt; val &gt; 0)
-		.withMessage(putMsgErrors[7]),
-	body('availability').isBoolean().withMessage(putMsgErrors[8]),
+		.withMessage(PutErrorMsgs[7]),
+	body('availability').isBoolean().withMessage(PutErrorMsgs[8]),
 	handleInputErrors,
 	updateProduct
 );

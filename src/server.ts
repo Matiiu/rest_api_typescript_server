@@ -1,10 +1,10 @@
 import express from 'express';
 import colors from 'colors';
-import cors, {CorsOptions} from 'cors';
+import cors, { CorsOptions } from 'cors';
 import morgan from 'morgan';
 import swaggerUi from 'swagger-ui-express';
 
-import swaggerSpec, {swaggerUiOptions} from './config/swagger';
+import swaggerSpec, { swaggerUiOptions } from './config/swagger';
 import router from './router';
 import db from './config/db';
 

@@ -1,5 +1,5 @@
-import {Router} from 'express';
-import {body, param} from 'express-validator';
+import { Router } from 'express';
+import { body, param } from 'express-validator';
 import {
 	createProduct,
 	getProducts,
@@ -8,8 +8,8 @@ import {
 	updateAvailability,
 	deleteProduct,
 } from './handlers/product';
-import {handleInputErrors} from './middlewares';
-import {putMsgErrors} from './data/Errors';
+import { handleInputErrors } from './middlewares';
+import { putErrorMsgs } from './data/Errors';
 
 const router = Router();
 
@@ -207,22 +207,22 @@ router.put(
 	// Validations
 	param('id')
 		.isInt()
-		.withMessage(putMsgErrors[1])
+		.withMessage(putErrorMsgs[1])
 		.custom((val: number) => val > 0)
-		.withMessage(putMsgErrors[2]),
+		.withMessage(putErrorMsgs[2]),
 	body('name')
 		.isString()
-		.withMessage(putMsgErrors[3])
+		.withMessage(putErrorMsgs[3])
 		.notEmpty()
-		.withMessage(putMsgErrors[4]),
+		.withMessage(putErrorMsgs[4]),
 	body('price')
 		.isNumeric()
-		.withMessage(putMsgErrors[5])
+		.withMessage(putErrorMsgs[5])
 		.notEmpty()
-		.withMessage(putMsgErrors[6])
+		.withMessage(putErrorMsgs[6])
 		.custom((val: number) => val > 0)
-		.withMessage(putMsgErrors[7]),
-	body('availability').isBoolean().withMessage(putMsgErrors[8]),
+		.withMessage(putErrorMsgs[7]),
+	body('availability').isBoolean().withMessage(putErrorMsgs[8]),
 	handleInputErrors,
 	updateProduct
 );

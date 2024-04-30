@@ -77,7 +77,7 @@ window.PR_SHOULD_USE_CONTINUATION = true;
 				}
 			}
 		}
-		var Y = {b: 8, t: 9, n: 10, v: 11, f: 12, r: 13};
+		var Y = { b: 8, t: 9, n: 10, v: 11, f: 12, r: 13 };
 		function ab(ah) {
 			var ag = ah.charCodeAt(0);
 			if (ag !== 92) {
@@ -303,13 +303,13 @@ window.PR_SHOULD_USE_CONTINUATION = true;
 			}
 		}
 		aa(V);
-		return {sourceCode: X.join('').replace(/\n$/, ''), spans: Z};
+		return { sourceCode: X.join('').replace(/\n$/, ''), spans: Z };
 	}
 	function B(S, U, W, T) {
 		if (!U) {
 			return;
 		}
-		var V = {sourceCode: U, basePos: S};
+		var V = { sourceCode: U, basePos: S };
 		W(V);
 		T.push.apply(T, V.decorations);
 	}
@@ -744,7 +744,7 @@ window.PR_SHOULD_USE_CONTINUATION = true;
 		['in.tag']
 	);
 	c(g([], [[n, /^[\s\S]+/]]), ['uq.val']);
-	c(i({keywords: l, hashComments: true, cStyleComments: true, types: e}), [
+	c(i({ keywords: l, hashComments: true, cStyleComments: true, types: e }), [
 		'c',
 		'cc',
 		'cpp',
@@ -752,7 +752,7 @@ window.PR_SHOULD_USE_CONTINUATION = true;
 		'cyc',
 		'm',
 	]);
-	c(i({keywords: 'null,true,false'}), ['json']);
+	c(i({ keywords: 'null,true,false' }), ['json']);
 	c(
 		i({
 			keywords: R,
@@ -763,8 +763,8 @@ window.PR_SHOULD_USE_CONTINUATION = true;
 		}),
 		['cs']
 	);
-	c(i({keywords: x, cStyleComments: true}), ['java']);
-	c(i({keywords: H, hashComments: true, multiLineStrings: true}), [
+	c(i({ keywords: x, cStyleComments: true }), ['java']);
+	c(i({ keywords: H, hashComments: true, multiLineStrings: true }), [
 		'bsh',
 		'csh',
 		'sh',
@@ -796,7 +796,7 @@ window.PR_SHOULD_USE_CONTINUATION = true;
 		}),
 		['rb']
 	);
-	c(i({keywords: w, cStyleComments: true, regexLiterals: true}), ['js']);
+	c(i({ keywords: w, cStyleComments: true, regexLiterals: true }), ['js']);
 	c(
 		i({
 			keywords: r,
@@ -831,7 +831,7 @@ window.PR_SHOULD_USE_CONTINUATION = true;
 		if (U) {
 			Q(S, U);
 		}
-		var T = {langExtension: V, numberLines: U, sourceNode: S};
+		var T = { langExtension: V, numberLines: U, sourceNode: S };
 		d(T);
 		return S.innerHTML;
 	}
@@ -892,7 +892,7 @@ window.PR_SHOULD_USE_CONTINUATION = true;
 						if (af) {
 							Q(aj, af);
 						}
-						S = {langExtension: ah, sourceNode: aj, numberLines: af};
+						S = { langExtension: ah, sourceNode: aj, numberLines: af };
 						d(S);
 					}
 				}

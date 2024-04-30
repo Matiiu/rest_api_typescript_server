@@ -1,5 +1,5 @@
 import swaggerJSDoc from 'swagger-jsdoc';
-import {SwaggerUiOptions} from 'swagger-ui-express';
+import { SwaggerUiOptions } from 'swagger-ui-express';
 
 const options: swaggerJSDoc.Options = {
 	swaggerDefinition: {
@@ -31,4 +31,4 @@ const swaggerUiOptions: SwaggerUiOptions = {
 };
 
 export default swaggerSpec;
-export {swaggerUiOptions};
+export { swaggerUiOptions };

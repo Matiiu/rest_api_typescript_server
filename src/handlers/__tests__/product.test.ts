@@ -1,6 +1,6 @@
 import request from 'supertest';
 import server from '../../server';
-import {putMsgErrors} from '../../data/Errors';
+import { putErrorMsgs } from '../../data/Errors';
 
 const invalidId = 'invalid-id';
 const nonExistentId = 9999;
@@ -133,7 +133,7 @@ describe('PUT api/product/:id', () => {
 		expect(res.body.errors).toBeTruthy();
 		expect(res.body.errors).toHaveLength(8);
 
-		for (const [key, val] of Object.entries(putMsgErrors)) {
+		for (const [key, val] of Object.entries(putErrorMsgs)) {
 			const keyInt = +key - 1;
 			if (keyInt < 8) {
 				expect(res.body.errors[keyInt].msg).toBe(val);
@@ -155,7 +155,7 @@ describe('PUT api/product/:id', () => {
 		expect(res.body).toHaveProperty('errors');
 		expect(res.body.errors).toBeTruthy();
 		expect(res.body.errors).toHaveLength(1);
-		expect(res.body.errors[0].msg).toBe(putMsgErrors[7]);
+		expect(res.body.errors[0].msg).toBe(putErrorMsgs[7]);
 
 		expect(res.body).not.toHaveProperty('data');
 		expect(res.status).not.toEqual(200);
@@ -172,7 +172,7 @@ describe('PUT api/product/:id', () => {
 		expect(res.body).toHaveProperty('errors');
 		expect(res.body.errors).toBeTruthy();
 		expect(res.body.errors).toHaveLength(1);
-		expect(res.body.errors[0].msg).toBe(putMsgErrors[9]);
+		expect(res.body.errors[0].msg).toBe(putErrorMsgs[9]);
 
 		expect(res.body).not.toHaveProperty('data');
 		expect(res.status).not.toEqual(200);
@@ -188,7 +188,7 @@ describe('PUT api/product/:id', () => {
 		expect(res.body).toHaveProperty('errors');
 		expect(res.body.errors).toBeTruthy();
 		expect(res.body.errors).toHaveLength(1);
-		expect(res.body.errors[0].msg).toBe(putMsgErrors[8]);
+		expect(res.body.errors[0].msg).toBe(putErrorMsgs[8]);
 
 		expect(res.body).not.toHaveProperty('data');
 		expect(res.status).not.toEqual(200);

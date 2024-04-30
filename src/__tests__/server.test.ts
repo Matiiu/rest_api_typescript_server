@@ -1,5 +1,5 @@
 import request from 'supertest';
-import server, {connectDB} from '../server';
+import server, { connectDB } from '../server';
 import db from '../config/db';
 
 // Create a mock for the database configuration module

@@ -1,4 +1,4 @@
-export type PutMsgErrors = {
+export type PutErrorMsgs = {
 	1: 'El ID debe ser un número entero';
 	2: 'El ID debe ser un número positivo';
 	3: 'El nombre debe ser un texto';
